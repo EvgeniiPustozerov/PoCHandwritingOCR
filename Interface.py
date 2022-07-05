@@ -26,7 +26,7 @@ if st.button('Try random samples from the database'):
         with col1:
             st.image(f)
         with col2:
-            st.text(f.split("\\")[1])
+            st.text(f)
 
     preds = prediction(folder)
     print(preds)

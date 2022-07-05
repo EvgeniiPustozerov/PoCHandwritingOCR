@@ -7,6 +7,12 @@ from pathlib import Path
 import streamlit as st
 from Model import prediction
 
+st.title('Cyrillic handwritten OCR demo')
+st.header('The simple Transformer-based OCR demo')
+st.subheader('This simple demo shows the possibilities of Transformer deep learning architecture in the task of '
+             'automatic text recognition for cyrillic texts. It now works with single-line samples. You can randomly '
+             'pickup a set of images from the built-in database or try uploading your own files.')
+
 if st.button('Try random samples from the database'):
     folder = "data/sample/"
     list_all_audio = glob.glob("data/dataset/*.png")
@@ -19,7 +25,7 @@ if st.button('Try random samples from the database'):
     preds = prediction(folder)
     print(preds)
     st.write(preds)
-uploaded_file = st.file_uploader("Choose your image with Russian text",
+uploaded_file = st.file_uploader("Choose your image with a single line of Russian text",
                                  accept_multiple_files=False, type=["png", "jpeg", "jpg"])
 if uploaded_file is not None:
     folder = "data/user_data/"

@@ -1,0 +1,6 @@
+torch
+imageio
+numpy
+torchvision
+streamlit
+opencv-python

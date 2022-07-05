@@ -8,13 +8,14 @@ import streamlit as st
 from Model import prediction
 
 st.title('Cyrillic handwritten OCR demo')
-st.header('The simple Transformer-based OCR demo')
-st.subheader('This simple demo shows the possibilities of Transformer deep learning architecture in the task of '
-             'automatic text recognition for cyrillic texts. It now works with single-line samples. You can randomly '
-             'pickup a set of images from the built-in database or try uploading your own files.')
+st.text('This simple demo shows the possibilities of the Transformer deep learning architecture in the task of '
+        'automatic text recognition for cyrillic texts. It now works with single-line samples. You can randomly '
+        'pickup a set of images from the built-in database or try uploading your own files.')
+
 
 if st.button('Try random samples from the database'):
     folder = "data/sample/"
+    os.makedirs(folder, exist_ok=True)
     list_all_audio = glob.glob("data/dataset/*.png")
     chosen_files = sorted(random.sample(list_all_audio, 3))
     for f in glob.glob(folder + '*'):
@@ -29,6 +30,7 @@ uploaded_file = st.file_uploader("Choose your image with a single line of Russia
                                  accept_multiple_files=False, type=["png", "jpeg", "jpg"])
 if uploaded_file is not None:
     folder = "data/user_data/"
+    os.makedirs(folder, exist_ok=True)
     for f in glob.glob(folder + '*'):
         os.remove(f)
     bytes_data = uploaded_file.read()

@@ -26,7 +26,7 @@ MODEL_PATH = "model/model_ocr_rus_handwriting.pt"
 idx2char = {idx: char for idx, char in enumerate(ALPHABET)}
 model = TransformerModel(len(ALPHABET), hidden=HIDDEN, enc_layers=ENC_LAYERS, dec_layers=DEC_LAYERS,
                          nhead=N_HEADS, dropout=0.0).to(DEVICE)
-model.load_state_dict(torch.load(MODEL_PATH))
+model.load_state_dict(torch.load(MODEL_PATH, map_location=DEVICE))
 
 
 def prediction(folder_images):

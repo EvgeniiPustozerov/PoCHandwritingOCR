@@ -21,7 +21,13 @@ if st.button('Try random samples from the database'):
         os.remove(f)
     for f in chosen_files:
         path = shutil.copy2(f, folder)
-        st.image(path)
+    for f in glob.glob(folder + '*'):
+        col1, col2 = st.columns(2)
+        with col1:
+            st.image(f)
+        with col2:
+            st.text(f.split("\\")[1])
+
     preds = prediction(folder)
     print(preds)
     st.write(preds)

@@ -8,10 +8,9 @@ import streamlit as st
 from Model import prediction
 
 st.title('Cyrillic handwritten OCR demo')
-st.text('This simple demo shows the possibilities of the Transformer deep learning architecture in the task of '
-        'automatic text recognition for cyrillic texts. It now works with single-line samples. You can randomly '
-        'pickup a set of images from the built-in database or try uploading your own files.')
-
+st.subheader('This simple demo shows the possibilities of the Transformer deep learning architecture in the task of '
+             'automatic text recognition for cyrillic texts. It now works with single-line samples. You can randomly '
+             'pickup a set of images from the built-in database or try uploading your own files.')
 
 if st.button('Try random samples from the database'):
     folder = "data/sample/"
